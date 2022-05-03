@@ -20,11 +20,11 @@
 #include <rclc/rclc.h>
 #include <rclc/executor.h>
 
-#include <nav_msgs/msg/odometry.h>
+// #include <nav_msgs/msg/odometry.h>
 #include <geometry_msgs/msg/twist.h>
 #include <geometry_msgs/msg/vector3.h>
 
-#include "config.h"
+// #include "config.h"
 #include "motor.h"
 #include "kinematics.h"
 #include "pid.h"
@@ -102,7 +102,7 @@ void controlCallback(rcl_timer_t * timer, int64_t last_call_time)
     if (timer != NULL) 
     {
        moveBase();
-       publishData();
+//        publishData();
     }
 }
 
@@ -189,32 +189,10 @@ void moveBase()
 //    motor3_controller.spin(motor3_pid.compute(req_rpm.motor3, current_rpm3));
 //    motor4_controller.spin(motor4_pid.compute(req_rpm.motor4, current_rpm4));
 
-    unsigned long now = millis();
-    float vel_dt = (now - prev_odom_update) / 1000.0;
-    prev_odom_update = now;
-    odometry.update(
-        vel_dt, 
-        current_vel.linear_x, 
-        current_vel.linear_y, 
-        current_vel.angular_z
-    );
 }
 
 void publishData()
 {
-    odom_msg = odometry.getData();
-//    imu_msg = imu.getData();
-
-    struct timespec time_stamp = getTime();
-
-    odom_msg.header.stamp.sec = time_stamp.tv_sec;
-    odom_msg.header.stamp.nanosec = time_stamp.tv_nsec;
-
-//    imu_msg.header.stamp.sec = time_stamp.tv_sec;
-//    imu_msg.header.stamp.nanosec = time_stamp.tv_nsec;
-
-//    RCSOFTCHECK(rcl_publish(&imu_publisher, &imu_msg, NULL));
-    RCSOFTCHECK(rcl_publish(&odom_publisher, &odom_msg, NULL));
 }
 
 void syncTime()
