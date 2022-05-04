@@ -15,6 +15,8 @@
 #include <micro_ros_arduino.h>
 #include <stdio.h>
 
+#include <Servo.h> 
+
 #include <rcl/rcl.h>
 #include <rcl/error_handling.h>
 #include <rclc/rclc.h>
@@ -35,6 +37,8 @@
 rcl_subscription_t twist_subscriber;
 
 geometry_msgs__msg__Twist twist_msg;
+
+Servo motor;
 
 rclc_executor_t executor;
 rclc_support_t support;
@@ -184,11 +188,16 @@ void moveBase()
     
 //    // the required rpm is capped at -/+ MAX_RPM to prevent the PID from having too much error
 //    // the PWM value sent to the motor driver is the calculated PID based on required RPM vs measured RPM
-//    motor1_controller.spin(motor1_pid.compute(req_rpm.motor1, current_rpm1));
+//     pwm = 
+    
+//     motor.writeMicroseconds(pwm);
+    
 //    motor2_controller.spin(motor2_pid.compute(req_rpm.motor2, current_rpm2));
 //    motor3_controller.spin(motor3_pid.compute(req_rpm.motor3, current_rpm3));
 //    motor4_controller.spin(motor4_pid.compute(req_rpm.motor4, current_rpm4));
 
+    
+    
 }
 
 void publishData()
