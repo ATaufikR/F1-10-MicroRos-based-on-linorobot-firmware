@@ -47,13 +47,13 @@ unsigned long prev_cmd_time = 0;
 bool micro_ros_init_successful = false;
 
 Kinematics kinematics(
-    Kinematics::ACKERMANN, 
-    MOTOR_MAX_RPM, 
-    MAX_RPM_RATIO, 
-    MOTOR_OPERATING_VOLTAGE, 
-    MOTOR_POWER_MAX_VOLTAGE, 
-    0.0653, 
-    0.1588
+    ACKERMANN, 
+    MOTOR_MAX_RPM, //16000
+    MAX_RPM_RATIO, //whats this?
+    MOTOR_OPERATING_VOLTAGE, //7.2V
+    MOTOR_POWER_MAX_VOLTAGE, //7.2V
+    0.0653, //wheel diameter
+    0.1588  //LR wheel distance
 );
 
 
