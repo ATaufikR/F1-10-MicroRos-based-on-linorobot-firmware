@@ -1,5 +1,6 @@
 kardanwelle:motor = 22:70
-
+wheel:kardanwelle = 1:2.625
+motor:wheel = 8.27:1
 
 ## Installation
 All software mentioned in this guide must be installed on the robot computer.
