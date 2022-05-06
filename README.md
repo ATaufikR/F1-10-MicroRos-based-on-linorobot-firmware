@@ -1,3 +1,6 @@
+kardanwelle:motor = 22:70
+
+
 ## Installation
 All software mentioned in this guide must be installed on the robot computer.
 
